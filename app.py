@@ -10,7 +10,7 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
 	mars = mongo.db.mars.find_one()
-	teturn render_template('index.html', mars=mars)
+	return render_template('index.html', mars=mars)
 
 @app.route('/scrape')
 def scrape():
@@ -21,7 +21,7 @@ def scrape():
 		mars_data,
 		upsert=True
 	)
-	return redirect(INSERT HEROKU STUFF HERE, code=302)
+	return redirect("http://localhost:5000/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)
